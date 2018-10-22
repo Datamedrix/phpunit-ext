@@ -4,11 +4,11 @@
     "keywords": ["phpunit", "enhancements", "extension", "constraints"],
     "license": "MIT",
     "type": "library",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "require": {
         "php": "^7.2.1",
         "phpunit/phpunit": "^7.0",
-        "nesbot/carbon": "^2.4"
+        "nesbot/carbon": "^1.34.0"
     },
     "require-dev": {
         "ext-mbstring": "*",

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.0.1"></a>
+# 1.0.1 (2018-10-22)
+
+### Fixes
+
+* **composer:** update dependency "nesbot/carbon": "^1.34.0" cause of Laravel 5.6 dependency issues
+
 <a name="1.0.0"></a>
 # 1.0.0 (2018-10-22)
 
