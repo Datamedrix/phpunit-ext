@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace DMX\PHPUnit\Framework\Constraints;
 
+use SebastianBergmann\Exporter\Exporter;
 use PHPUnit\Framework\Constraint\Constraint;
 
 class Carbon extends Constraint
@@ -36,7 +37,10 @@ class Carbon extends Constraint
      */
     public function __construct($expected, int $epsilon = 0)
     {
-        parent::__construct();
+        // Compatibility hack for PHPUnit ^7.0
+        if (property_exists($this, 'exporter')) {
+            $this->exporter = new Exporter();
+        }
 
         $this->epsilon = $epsilon;
 
@@ -86,10 +90,17 @@ class Carbon extends Constraint
             return 'not a string or an instance of Carbon';
         }
 
+        // Compatibility hack for PHPUnit ^7.0
+        if (method_exists($this, 'exporter')) {
+            $exporter = $this->exporter();
+        } else {
+            $exporter = $this->exporter;
+        }
+
         return sprintf(
             'DateTime %s does not match expected %s',
-            $this->exporter->shortenedExport($other->toDateTimeString()),
-            $this->exporter->shortenedExport($this->expected->toDateTimeString())
+            $exporter->shortenedExport($other->toDateTimeString()),
+            $exporter->shortenedExport($this->expected->toDateTimeString())
         );
     }
 }

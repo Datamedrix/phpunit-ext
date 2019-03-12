@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+<a name="1.1.0"></a>
+# 1.1.0 (2019-03-12)
+
+### Chore
+
+* **\*:** Add support for PHPUnit version ^8.0.
+
 <a name="1.0.2"></a>
 # 1.0.2 (2018-10-22)
 

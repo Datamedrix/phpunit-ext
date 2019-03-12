@@ -54,25 +54,6 @@ class CarbonTest extends TestCase
 
     /**
      * Test.
-     */
-    public function testConstructor()
-    {
-        // 1. converts string to Carbon
-        $constraint = new Carbon('1981-01-10');
-        $this->assertAttributeInstanceOf(\Carbon\Carbon::class, 'expected', $constraint);
-        $this->assertAttributeEquals(0, 'epsilon', $constraint);
-
-        // 2. using an Carbon object
-        $dummyEpsilon = rand(10, 100);
-        $dummyCarbon = \Carbon\Carbon::parse('1981-01-10');
-        $constraint = new Carbon($dummyCarbon, $dummyEpsilon);
-        $this->assertAttributeInstanceOf(\Carbon\Carbon::class, 'expected', $constraint);
-        $this->assertAttributeEquals($dummyCarbon, 'expected', $constraint);
-        $this->assertAttributeEquals($dummyEpsilon, 'epsilon', $constraint);
-    }
-
-    /**
-     * Test.
      *
      * @param $invalidValue
      *

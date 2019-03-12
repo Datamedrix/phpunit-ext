@@ -24,23 +24,6 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testConstructor()
-    {
-        $constraint = new Closure(null);
-
-        $this->assertAttributeEmpty('expectedReturnValue', $constraint);
-        $this->assertAttributeEquals(null, 'expectedReturnValue', $constraint);
-
-        $value = rand(0, 9) . 'Foo' . rand(100, 999);
-        $constraint = new Closure($value);
-
-        $this->assertAttributeNotEmpty('expectedReturnValue', $constraint);
-        $this->assertAttributeEquals($value, 'expectedReturnValue', $constraint);
-    }
-
-    /**
-     * Test.
-     */
     public function testToString()
     {
         $constraint = new Closure(null);

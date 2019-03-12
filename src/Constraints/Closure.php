@@ -14,24 +14,28 @@ declare(strict_types=1);
 
 namespace DMX\PHPUnit\Framework\Constraints;
 
+use SebastianBergmann\Exporter\Exporter;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\ExpectationFailedException;
 
 class Closure extends Constraint
 {
     /**
-     * @var null|mixed
+     * @var mixed|null
      */
     private $expectedReturnValue = null;
 
     /**
      * ClosureReturns constructor.
      *
-     * @param null|mixed $expectedReturnValue
+     * @param mixed|null $expectedReturnValue
      */
     public function __construct($expectedReturnValue)
     {
-        parent::__construct();
+        // Compatibility hack for PHPUnit ^7.0
+        if (property_exists($this, 'exporter')) {
+            $this->exporter = new Exporter();
+        }
 
         $this->expectedReturnValue = $expectedReturnValue;
     }
@@ -72,9 +76,16 @@ class Closure extends Constraint
      */
     protected function failureDescription($other): string
     {
+        // Compatibility hack for PHPUnit ^7.0
+        if (method_exists($this, 'exporter')) {
+            $exporter = $this->exporter();
+        } else {
+            $exporter = $this->exporter;
+        }
+
         return sprintf(
             '%s is an instance of \Closure and returns the expected value',
-            $this->exporter->shortenedExport($other)
+            $exporter->shortenedExport($other)
         );
     }
 }

@@ -39,9 +39,16 @@ class IsClosure extends Constraint
      */
     protected function failureDescription($other): string
     {
+        // Compatibility hack for PHPUnit ^7.0
+        if (method_exists($this, 'exporter')) {
+            $exporter = $this->exporter();
+        } else {
+            $exporter = $this->exporter;
+        }
+
         return sprintf(
             '%s is an instance of \Closure',
-            $this->exporter->shortenedExport($other)
+            $exporter->shortenedExport($other)
         );
     }
 }

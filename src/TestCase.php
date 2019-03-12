@@ -80,7 +80,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Asserts that a value is an instance of an \Closure and the \Closure returns the expected value.
      *
-     * @param null|mixed $expectedReturnValue
+     * @param mixed|null $expectedReturnValue
      * @param mixed      $actual
      * @param string     $message
      *
