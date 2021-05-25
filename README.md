@@ -6,7 +6,7 @@ A collection of constraints, asserts and test-cases for the PHPUnit framework.
 
 ## Requirements
 
-* PHP >= 7.2
+* PHP >= 7.4
 * Composer >= 1.5
 * phpunit >= 7.0
 
@@ -37,7 +37,7 @@ Now you can use the following constraints and assets in your tests.
 
 Reports an error identified by **$message** if **$actual** is not an instance of **\Closure**.
 
-*Example* 
+*Example*
 ```php
 $actual = function () {
     return 'Foo.Bar';
@@ -67,7 +67,7 @@ $this->assertClosure($expectedReturnValue, $actual);
 
 `assertCarbon(mixed $expectedDateTime, mixed $actual [, int $epsilon = 0, string $message = '']): void`
 
-Reports an error identified by **$message** if **$actual** does not match with the **$expectedCarbon**. 
+Reports an error identified by **$message** if **$actual** does not match with the **$expectedCarbon**.
 If an **$epsilon** is set, the **$actual** value could diverse the amount of seconds defined by the epsilon.
 
 *Example*

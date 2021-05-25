@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.2.0 (2021-05-25)
+
+### Chore
+
+* **composer:** Set minimum PHP version to 7.4.1!
+
 # 1.1.2 (2019-09-09)
 
 ### Chore
@@ -44,7 +50,7 @@ All notable changes to this project will be documented in this file.
     * Carbon
     * Closure
     * IsClosure
-    * IsNotEmpty  
+    * IsNotEmpty
 
 <a name="1.0.0"></a>
 # 0.0.0 (2018-10-04)

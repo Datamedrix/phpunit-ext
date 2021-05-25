@@ -4,9 +4,9 @@
     "keywords": ["phpunit", "enhancements", "extension", "constraints"],
     "license": "MIT",
     "type": "library",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "require": {
-        "php": "^7.2.1",
+        "php": ">=7.4.1",
         "phpunit/phpunit": "^7.0|^8.0",
         "nesbot/carbon": "^1.25.0|^2.10"
     },
