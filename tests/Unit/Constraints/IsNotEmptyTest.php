@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace DMX\PHPUnit\Framework\Tests\Unit\Constraints;
 
-use Countable;
 use PHPUnit\Framework\TestCase;
 use DMX\PHPUnit\Framework\Constraints\IsNotEmpty;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -24,7 +23,7 @@ class IsNotEmptyTest extends TestCase
     /**
      * @return array
      */
-    public function getNonEmptyValues()
+    public function getNonEmptyValues(): array
     {
         return [
             ['foo Bar, I am loving it!'],
@@ -33,8 +32,8 @@ class IsNotEmptyTest extends TestCase
             [12.34],
             [true],
             [new \stdClass()],
-            [new class() implements Countable {
-                public function count()
+            [new class() implements \Countable {
+                public function count(): int
                 {
                     return rand(1, 100);
                 }
@@ -45,15 +44,15 @@ class IsNotEmptyTest extends TestCase
     /**
      * @return array
      */
-    public function getEmptyValues()
+    public function getEmptyValues(): array
     {
         return [
             [0, 'Failed asserting that a integer is not empty.'],
             ['', 'Failed asserting that a string is not empty.'],
             [false, 'Failed asserting that a boolean is not empty.'],
             [null, 'Failed asserting that a NULL is not empty.'],
-            [new class() implements Countable {
-                public function count()
+            [new class() implements \Countable {
+                public function count(): int
                 {
                     return 0;
                 }
@@ -64,7 +63,7 @@ class IsNotEmptyTest extends TestCase
     /**
      * Test.
      */
-    public function testToString()
+    public function testToString(): void
     {
         $constraint = new IsNotEmpty();
         $this->assertEquals('is not empty', $constraint->toString());
@@ -77,7 +76,7 @@ class IsNotEmptyTest extends TestCase
      *
      * @dataProvider getNonEmptyValues
      */
-    public function testEvaluateTrueForNonEmptyValues($value)
+    public function testEvaluateTrueForNonEmptyValues(mixed $value): void
     {
         $constraint = new IsNotEmpty();
 
@@ -92,7 +91,7 @@ class IsNotEmptyTest extends TestCase
      *
      * @dataProvider getEmptyValues
      */
-    public function testEvaluateFalseForEmptyValues($value, string $expectedExceptionMessage)
+    public function testEvaluateFalseForEmptyValues(mixed $value, string $expectedExceptionMessage): void
     {
         $this->expectException(ExpectationFailedException::class);
         $this->expectExceptionMessage($expectedExceptionMessage);

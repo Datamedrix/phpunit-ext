@@ -23,7 +23,7 @@ class IsClosureTest extends TestCase
     /**
      * @var IsClosure
      */
-    private $constraint;
+    private IsClosure $constraint;
 
     /**
      * {@inheritdoc}
@@ -36,7 +36,7 @@ class IsClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testToString()
+    public function testToString(): void
     {
         $this->assertEquals('is closure', $this->constraint->toString());
     }
@@ -44,7 +44,7 @@ class IsClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateTrueForClosure()
+    public function testEvaluateTrueForClosure(): void
     {
         $closure = function () {
             return 'foo';
@@ -56,7 +56,7 @@ class IsClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateFalseForNonClosures()
+    public function testEvaluateFalseForNonClosures(): void
     {
         $closure = 'Foo.Bar';
 

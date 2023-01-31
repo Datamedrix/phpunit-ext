@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace DMX\PHPUnit\Framework\Constraints;
 
-use Countable;
 use PHPUnit\Framework\Constraint\Constraint;
 
 class IsNotEmpty extends Constraint
@@ -32,7 +31,7 @@ class IsNotEmpty extends Constraint
      */
     protected function matches($other): bool
     {
-        if ($other instanceof Countable) {
+        if ($other instanceof \Countable) {
             return count($other) > 0;
         }
 

@@ -39,7 +39,7 @@ class CarbonTest extends TestCase
     /**
      * @return array
      */
-    public function getNotMatchingValues()
+    public function getNotMatchingValues(): array
     {
         $now = \Carbon\Carbon::now();
 
@@ -59,7 +59,7 @@ class CarbonTest extends TestCase
      *
      * @dataProvider getInvalidMatches
      */
-    public function testConstructorThrowsExceptionOnInvalidMatchValues($invalidValue)
+    public function testConstructorThrowsExceptionOnInvalidMatchValues(mixed $invalidValue): void
     {
         $this->expectException(\InvalidArgumentException::class);
 
@@ -69,7 +69,7 @@ class CarbonTest extends TestCase
     /**
      * Test.
      */
-    public function testToString()
+    public function testToString(): void
     {
         $constraint = new Carbon('1981-01-10', 0);
         $this->assertEquals('Carbon', $constraint->toString());
@@ -78,7 +78,7 @@ class CarbonTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateTrueOnStringValues()
+    public function testEvaluateTrueOnStringValues(): void
     {
         $constraint = new Carbon('1981-01-10');
         $this->assertNull($constraint->evaluate('1981-01-10'));
@@ -96,7 +96,7 @@ class CarbonTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateTrueOnCarbonValues()
+    public function testEvaluateTrueOnCarbonValues(): void
     {
         $constraint = new Carbon(\Carbon\Carbon::parse('1981-01-10'), 0);
         $this->assertNull($constraint->evaluate(\Carbon\Carbon::parse('1981-01-10')));
@@ -119,7 +119,7 @@ class CarbonTest extends TestCase
      *
      * @dataProvider getNotMatchingValues
      */
-    public function testEvaluateFalse($value, string $expectedExceptionMessage)
+    public function testEvaluateFalse(mixed $value, string $expectedExceptionMessage): void
     {
         $this->expectException(ExpectationFailedException::class);
         $this->expectExceptionMessage($expectedExceptionMessage);

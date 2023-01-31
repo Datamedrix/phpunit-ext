@@ -24,7 +24,7 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testToString()
+    public function testToString(): void
     {
         $constraint = new Closure(null);
         $this->assertEquals('is closure', $constraint->toString());
@@ -33,7 +33,7 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateTrueForClosures()
+    public function testEvaluateTrueForClosures(): void
     {
         $closure = function () {
             return 'foo';
@@ -49,9 +49,9 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateTrueForClosureAndTheCorrectReturnValue()
+    public function testEvaluateTrueForClosureAndTheCorrectReturnValue(): void
     {
-        $value = 'BAR' . rand(1000000, 999999);
+        $value = 'BAR' . rand(100000, 999999);
         $closure = function () use ($value) {
             return $value;
         };
@@ -63,7 +63,7 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateTrueForClosureUsingAnConstraintValue()
+    public function testEvaluateTrueForClosureUsingAnConstraintValue(): void
     {
         $value = $this->getMockBuilder(Constraint::class)
             ->disableOriginalConstructor()
@@ -86,7 +86,7 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateFalseForNonClosures()
+    public function testEvaluateFalseForNonClosures(): void
     {
         $closure = 'Foo.Bar';
 
@@ -100,7 +100,7 @@ class ClosureTest extends TestCase
     /**
      * Test.
      */
-    public function testEvaluateFalseForClosureUsingAnConstraintValue()
+    public function testEvaluateFalseForClosureUsingAnConstraintValue(): void
     {
         $value = $this->getMockBuilder(Constraint::class)
             ->disableOriginalConstructor()
