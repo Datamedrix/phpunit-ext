@@ -24,6 +24,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
 {
     /**
      * @return IsClosure
+     *
      * @codeCoverageIgnore
      */
     public static function isClosure(): IsClosure
@@ -35,6 +36,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
      * @param mixed $expectedReturnValue
      *
      * @return Closure
+     *
      * @codeCoverageIgnore
      */
     public static function closure($expectedReturnValue): Closure
@@ -44,6 +46,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
 
     /**
      * @return IsNotEmpty
+     *
      * @codeCoverageIgnore
      */
     public static function isNotEmpty(): IsNotEmpty
@@ -56,6 +59,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
      * @param int                   $epsilon
      *
      * @return Carbon
+     *
      * @codeCoverageIgnore
      */
     public static function carbon($expectedDateTime, int $epsilon = 0): Carbon
@@ -70,6 +74,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
      * @param string $message
      *
      * @throws ExpectationFailedException
+     *
      * @codeCoverageIgnore
      */
     public static function assertIsClosure($actual, string $message = ''): void
@@ -85,6 +90,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
      * @param string     $message
      *
      * @throws ExpectationFailedException
+     *
      * @codeCoverageIgnore
      */
     public static function assertClosure($expectedReturnValue, $actual, string $message = ''): void
@@ -100,6 +106,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
      *
      * @throws ExpectationFailedException
      * @throws \InvalidArgumentException
+     *
      * @codeCoverageIgnore
      */
     public static function assertCarbon($expectedDateTime, $actual, int $epsilon = 0, string $message = ''): void
