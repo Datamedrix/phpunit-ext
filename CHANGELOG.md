@@ -1,6 +1,13 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.3.0](https://github.com/Datamedrix/phpunit-ext/compare/v1.2.0...v1.3.0) (2023-01-31)
+
+
+### Features
+
+* Set required PHP Version to >=8.0.2! ([4fc05b7](https://github.com/Datamedrix/phpunit-ext/commit/4fc05b7d6010a969ae87b7142b643e0593677fcf))
 
 # 1.2.0 (2021-05-25)
 
@@ -57,4 +64,3 @@ All notable changes to this project will be documented in this file.
 
 ### Chore
 * **\*:** initial commit
-
